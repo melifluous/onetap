@@ -1,4 +1,4 @@
-const BetterDataFile = new (require("BetterDataFile1.js")).BetterDataFile()
+const BetterDataFile = new (require("BetterDataFile.js")).BetterDataFile()
 
 BetterDataFile.Load("fileName")
 // Loads a DataFile
