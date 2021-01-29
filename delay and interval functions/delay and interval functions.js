@@ -21,11 +21,11 @@ function delay(callback, milliseconds) {
         const symbols = Object.getOwnPropertySymbols(this[delayCallbacksSymbol])
 
         for(var i = 0; i < symbols.length; i++) {
-            const intervalObject = this[delayCallbacksSymbol][symbols[i]]
-            const difference = Date.now() - intervalObject.start
+            const delayObject = this[delayCallbacksSymbol][symbols[i]]
+            const difference = Date.now() - delayObject.start
 
-            if(difference >= intervalObject.milliseconds) {    
-                intervalObject.callback()
+            if(difference >= delayObject.milliseconds) {    
+                delayObject.callback()
 
                 delete this[delayCallbacksSymbol][symbols[i]]
             }
