@@ -1,9 +1,10 @@
 function delay(callback, milliseconds) {
     const registeredSymbol = Symbol.for("isDelayRegistered?")
     const delayCallbacksSymbol = Symbol.for("delayCallbacks")
-    const delaySymbol = Symbol()
 
     if(typeof callback == "function" && typeof milliseconds == "number") {
+        const delaySymbol = Symbol()
+
         if(!this[delayCallbacksSymbol])
             this[delayCallbacksSymbol] = {}
 
@@ -14,6 +15,8 @@ function delay(callback, milliseconds) {
 
             Cheat.RegisterCallback("Draw", "delay")
         }
+
+        return delaySymbol
     } else {
         const symbols = Object.getOwnPropertySymbols(this[delayCallbacksSymbol])
 
@@ -28,22 +31,19 @@ function delay(callback, milliseconds) {
             }
         }
     }
-
-    return delaySymbol
 }
 
 function clearDelay(intervalSymbol) {
-    const delayCallbacksSymbol = Symbol.for("delayCallbacks")
-
-    delete this[delayCallbacksSymbol][intervalSymbol]
+    delete this[Symbol.for("delayCallbacks")][intervalSymbol]
 }
 
 function interval(callback, milliseconds, executeImmediately) {
     const isRegisteredSymbol = Symbol.for("isIntervalRegistered?")
     const intervalCallbacksSymbol = Symbol.for("intervalCallbacks")
-    const intervalSymbol = Symbol()
 
     if(typeof callback == "function" && typeof milliseconds == "number") {
+        const intervalSymbol = Symbol()
+
         if(!this[intervalCallbacksSymbol])
             this[intervalCallbacksSymbol] = {}
 
@@ -57,6 +57,8 @@ function interval(callback, milliseconds, executeImmediately) {
 
             Cheat.RegisterCallback("Draw", "interval")
         }
+
+        return intervalSymbol
     } else {
         const symbols = Object.getOwnPropertySymbols(this[intervalCallbacksSymbol])
 
@@ -70,12 +72,8 @@ function interval(callback, milliseconds, executeImmediately) {
             }
         }
     }
-
-    return intervalSymbol
 }
 
 function clearInterval(delaySymbol) {
-    const intervalCallbacksSymbol = Symbol.for("intervalCallbacks")
-
-    delete this[intervalCallbacksSymbol][delaySymbol]
+    delete this[Symbol.for("intervalCallbacks")][delaySymbol]
 }
