@@ -208,4 +208,4 @@ function _BetterDataFile() {
   }
 }
 
-exports.BetterDataFile = _BetterDataFile
+exports.BetterDataFile = new _BetterDataFile()
