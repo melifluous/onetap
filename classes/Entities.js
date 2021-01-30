@@ -117,7 +117,7 @@ function CSEntity(entityIndex) {
    * @returns {boolean} boolean
    */
   this.isPlayer = function() {
-    return this.isEnemy() || this.isLocalPlayer()
+    return Entity.IsTeammate(this.entityIndex) || Entity.IsEnemy(this.entityIndex)
   }
 
   /**
