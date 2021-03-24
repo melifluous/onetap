@@ -1,4 +1,4 @@
-const BetterDataFile = (function() {
+var BetterDataFile = (function() {
     const createFile = function(fileName) {
         var json = ''
     
@@ -70,3 +70,5 @@ const BetterDataFile = (function() {
     
     return data
 })()
+
+exports.BetterDataFile = BetterDataFile
