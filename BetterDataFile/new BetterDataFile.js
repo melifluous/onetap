@@ -59,7 +59,7 @@ var BetterDataFile = (function() {
     
         DataFile.SetKey(fileName, '_', length.toString())
     
-        for(var i = 0; i < length; i++) {
+        for(var i = 0; i < length; i) {
             DataFile.SetKey(fileName, '_' + i.toString(), jsonStringified.slice(i++ * 255, i * 255))
         }
     
